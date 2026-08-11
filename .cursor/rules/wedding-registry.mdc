@@ -1,0 +1,41 @@
+---
+description: Wedding registry locked product decisions, stack, and phase order for all agents
+alwaysApply: true
+---
+
+# Wedding Gift Registry — Project Memory
+
+Couple: **Sagar & Krithika**. Repo docs: `docs/implementation-plan.md`, `docs/phase-1-database-setup.md`.
+
+## Stack (do not deviate)
+
+Next.js App Router · TypeScript · Tailwind · Supabase Postgres/Auth/Storage · Vercel.  
+**No** Spring/Java, separate backend, Docker, Redis, Kafka, GraphQL, Redux, Prisma/Drizzle, service role in Next.js.
+
+## Locked decisions
+
+- Public registry: `/registry`. `/` = future landing only.
+- No `/gifts/[id]`. No pricing anywhere. No guest notes/emails.
+- Images: **Supabase Storage required** (`gift-images`). Not external URLs as primary.
+- Categories (DB): Kitchen, Home, Decor, Experiences, **Gift Cards last**. UI has **All**.
+- Normal gifts: one reservation. Gift Cards: one gift, `is_unlimited=true`, unlimited reserves.
+- Public shows only **“Reserved”** — never guest names or counts.
+- Guests reserve with **name only** via `reserve_gift` RPC. No guest cancel.
+- Admin: Supabase Auth + `public.admins` allowlist. JWT + RLS for CRUD/uploads.
+- Guest reserve UX success: `Thank you, <name> ❤️` / `This gift has been reserved.`
+- Public UI: premium editorial wedding lookbook — not e-commerce/SaaS/Tailwind generic.
+
+## Implementation order (current)
+
+1. Done: scaffold, DB, public registry (Phase 0–2)
+2. Done: Admin auth + gift CRUD/images (Phase 4–5)
+3. Done: Guest reserve dialog (Phase 3)
+4. Done: Visual polish + deploy docs (Phase 6)
+5. Optional later: full landing page, CAPTCHA, OG images (Phase 7)
+
+## Agent rules
+
+- Prefer Server Components + Server Actions; Client only for forms/tabs/dialogs.
+- Keep dependencies minimal (`@supabase/ssr`, `@supabase/supabase-js`, `zod`).
+- Never add `SUPABASE_SERVICE_ROLE_KEY` to the app.
+- Before changing schema/product rules, re-read `docs/implementation-plan.md`.

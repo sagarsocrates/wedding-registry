@@ -1,0 +1,14 @@
+---
+description: Admin auth, RLS, and gift CRUD conventions for this registry
+globs: app/admin/**/*.{ts,tsx},lib/**/*.{ts,tsx},middleware.ts,supabase/**/*.sql
+alwaysApply: false
+---
+
+# Admin & data conventions
+
+- Protect `/admin/*` except `/admin/login` in middleware (session) and admin layout (session + `admins` allowlist).
+- Mutations use the logged-in user’s Supabase client (cookies/JWT). Storage uploads use the same client to `gift-images`.
+- Gift fields only: title, description, category_id, image_path, store_url?, sort_order, is_published, is_unlimited.
+- Set `is_unlimited` only for Gift Cards category; at most one unlimited gift (DB unique index).
+- Public data from `gifts_public`. Reservations: admin read/delete only; guests use `reserve_gift`.
+- Do not expose `guest_name` on public pages.
