@@ -238,11 +238,11 @@ components/
   registry/…
   admin/…
 lib/
-  supabase/{server,client,middleware}.ts
+  supabase/{server,client,session}.ts
   types.ts
   validations.ts
   storage.ts
-middleware.ts                  # session refresh + /admin gate
+proxy.ts                           # session refresh + /admin gate (Next.js 16)
 supabase/migrations/001_init.sql
 docs/implementation-plan.md
 ```

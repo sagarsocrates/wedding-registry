@@ -46,6 +46,10 @@ In Supabase → **Authentication → URL configuration**, add:
 - Site URL: your production URL
 - Redirect URLs: `https://YOUR_DOMAIN/auth/callback`, `http://localhost:3000/auth/callback`
 
+## Next.js 16 note
+
+This app uses `proxy.ts` (Node.js) instead of deprecated Edge `middleware.ts`, which avoids Vercel Edge Function module restrictions with `@supabase/ssr`.
+
 ## Smoke test checklist
 
 - [ ] `/` loads with couple names and link to registry
