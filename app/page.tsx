@@ -1,3 +1,5 @@
+import { BlessingsSection } from "@/components/registry/blessings-section";
+import { StyleOneHero } from "@/components/registry/style-one-hero";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { getSiteUrl } from "@/lib/site";
@@ -7,47 +9,38 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Home",
   description:
-    "Sagar & Krithika — a celebration of love. Browse our wedding gift registry.",
+    "Sagar & Krithika — celebrating our forever. Browse our wedding gift registry.",
   openGraph: {
     title: "Sagar & Krithika",
-    description: "A celebration of love. Browse our wedding gift registry.",
+    description: "Celebrating our forever. Browse our wedding gift registry.",
     url: getSiteUrl(),
     siteName: "Sagar & Krithika",
     type: "website",
+    images: [{ url: "/images/tamil-nadu-sketch.png" }],
   },
 };
 
 export default function HomePage() {
   return (
-    <>
+    <div className="relative min-h-full overflow-x-hidden bg-background">
       <SiteHeader active="home" />
-      <main className="relative flex flex-1 flex-col overflow-hidden">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(255,253,249,0.95),transparent_55%),radial-gradient(ellipse_at_bottom_right,rgba(140,106,90,0.08),transparent_45%)]"
+      <main>
+        <StyleOneHero
+          eyebrow="Celebrating our forever"
+          title="We are getting married"
+          description="Your love and blessings mean the world to us. Join us in celebration — and if you’d like to gift, our registry holds a few things for our happy home together."
         />
-        <div className="relative mx-auto flex w-full max-w-3xl flex-1 flex-col items-center justify-center px-6 py-24 text-center sm:py-32">
-          <p className="animate-fade-up text-xs tracking-[0.28em] uppercase text-accent">
-            Together
-          </p>
-          <h1 className="animate-fade-up animation-delay-100 mt-6 font-display text-5xl leading-[1.05] tracking-wide text-foreground sm:text-6xl md:text-7xl">
-            Sagar &amp; Krithika
-          </h1>
-          <p className="animate-fade-up animation-delay-200 mt-8 max-w-md text-base leading-relaxed text-muted sm:text-lg">
-            Our full wedding site is on the way. Until then, you are warmly
-            invited to browse the gifts we would love to share a home with.
-          </p>
-          <div className="animate-fade-up animation-delay-200 mt-12 flex flex-col items-center gap-4 sm:flex-row">
-            <Link
-              href="/registry"
-              className="inline-flex min-w-[12rem] items-center justify-center bg-foreground px-8 py-3.5 text-xs tracking-[0.18em] uppercase text-surface transition hover:bg-foreground/90"
-            >
-              View registry
-            </Link>
-          </div>
+        <div className="px-5 py-4 text-center">
+          <Link
+            href="/registry"
+            className="inline-flex min-w-[14rem] items-center justify-center border border-gold bg-maroon-deep px-8 py-3.5 text-[0.7rem] tracking-[0.2em] text-surface uppercase transition hover:bg-accent"
+          >
+            View gift registry
+          </Link>
         </div>
+        <BlessingsSection />
       </main>
       <SiteFooter />
-    </>
+    </div>
   );
 }

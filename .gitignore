@@ -23,6 +23,8 @@
 # misc
 .DS_Store
 *.pem
+.asset-backups/
+.tmp-venv/
 
 # debug
 npm-debug.log*

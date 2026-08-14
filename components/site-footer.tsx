@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { HeaderMandala } from "@/components/wedding/mockup-ornaments";
 
 type SiteFooterProps = {
   showAdminHint?: boolean;
@@ -6,23 +7,24 @@ type SiteFooterProps = {
 
 export function SiteFooter({ showAdminHint = false }: SiteFooterProps) {
   return (
-    <footer className="mt-auto border-t border-line/80">
-      <div className="mx-auto flex w-full max-w-6xl flex-col items-center gap-3 px-6 py-10 text-center">
-        <p className="font-display text-lg tracking-wide text-foreground">
+    <footer className="mt-auto bg-background pb-10 pt-2">
+      <div className="flex flex-col items-center px-6 text-center">
+        <HeaderMandala className="text-gold" />
+        <p className="mt-4 font-ceremony text-sm tracking-[0.2em] text-maroon-deep uppercase">
           Sagar &amp; Krithika
         </p>
-        <p className="max-w-sm text-sm leading-relaxed text-muted">
-          With love and gratitude for celebrating this chapter with us.
+        <p className="mx-auto mt-3 max-w-sm font-display text-base leading-relaxed text-[#5a4336]">
+          Thank you for blessing our beginning with your love and presence.
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-4 pt-1 text-xs tracking-[0.14em] uppercase text-muted">
-          <Link href="/" className="transition hover:text-foreground">
+        <div className="mt-5 flex flex-wrap items-center justify-center gap-4 text-[0.65rem] tracking-[0.18em] text-muted uppercase">
+          <Link href="/" className="transition hover:text-maroon-deep">
             Home
           </Link>
-          <Link href="/registry" className="transition hover:text-foreground">
+          <Link href="/registry" className="transition hover:text-maroon-deep">
             Registry
           </Link>
           {showAdminHint ? (
-            <Link href="/admin" className="transition hover:text-foreground">
+            <Link href="/admin" className="transition hover:text-maroon-deep">
               Admin
             </Link>
           ) : null}

@@ -1,12 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f7f3ee;
-  --foreground: #2c2622;
-  --muted: #6e645c;
-  --accent: #8c6a5a;
-  --surface: #fffdf9;
-  --line: #e6ddd3;
+  /* Exact sketch parchment — must match processed sketch corners */
+  --background: #f7f1e1;
+  --foreground: #2a1c16;
+  --muted: #6e5848;
+  --accent: #5d1f1a;
+  --gold: #c4a456;
+  --gold-soft: #e2d09a;
+  --leaf: #1e3a2b;
+  --leaf-soft: #274832;
+  --surface: #fffdf6;
+  --line: #d9c9a4;
+  --maroon-deep: #5d1f1a;
 }
 
 @theme inline {
@@ -14,29 +20,39 @@
   --color-foreground: var(--foreground);
   --color-muted: var(--muted);
   --color-accent: var(--accent);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-leaf: var(--leaf);
+  --color-leaf-soft: var(--leaf-soft);
   --color-surface: var(--surface);
   --color-line: var(--line);
-  --font-sans: var(--font-outfit), system-ui, sans-serif;
-  --font-display: var(--font-cormorant), ui-serif, Georgia, serif;
+  --color-maroon-deep: var(--maroon-deep);
+  --font-sans: var(--font-body), "Segoe UI", system-ui, sans-serif;
+  --font-display: var(--font-display), Georgia, "Times New Roman", serif;
+  --font-ceremony: var(--font-ceremony), Georgia, "Times New Roman", serif;
 }
 
 body {
-  background:
-    radial-gradient(ellipse at top, rgba(255, 253, 249, 0.9), transparent 50%),
-    var(--background);
+  background-color: var(--background);
+  /* Soft grain only — no bright wash that makes sketches look pasted on */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
   color: var(--foreground);
   font-family: var(--font-sans);
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--accent) 28%, white);
-  color: var(--foreground);
+  background: color-mix(in srgb, var(--gold) 35%, white);
+  color: var(--maroon-deep);
+}
+
+.font-ceremony {
+  font-family: var(--font-ceremony);
 }
 
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(0.6rem);
+    transform: translateY(0.55rem);
   }
   to {
     opacity: 1;
@@ -45,7 +61,7 @@ body {
 }
 
 .animate-fade-up {
-  animation: fade-up 0.7s ease-out both;
+  animation: fade-up 0.65s ease-out both;
 }
 
 .animation-delay-100 {

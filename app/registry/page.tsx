@@ -1,6 +1,7 @@
-import { CategoryNav } from "@/components/registry/category-nav";
+import { BlessingsSection } from "@/components/registry/blessings-section";
+import { CategoryIconBar } from "@/components/registry/category-icon-bar";
 import { GiftGrid } from "@/components/registry/gift-grid";
-import { RegistryHero } from "@/components/registry/registry-hero";
+import { StyleOneHero } from "@/components/registry/style-one-hero";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import {
@@ -13,14 +14,15 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Our Gift Registry",
   description:
-    "A curated gift registry for Sagar & Krithika. Choose something meaningful to celebrate with us.",
+    "Your love and blessings mean the world to us. Browse Sagar & Krithika's wedding gift registry.",
   openGraph: {
     title: "Our Gift Registry · Sagar & Krithika",
     description:
-      "A curated gift registry for Sagar & Krithika. Choose something meaningful to celebrate with us.",
+      "Your love and blessings mean the world to us. Browse our wedding gift registry.",
     url: `${getSiteUrl()}/registry`,
     siteName: "Sagar & Krithika",
     type: "website",
+    images: [{ url: "/images/tamil-nadu-sketch.png" }],
   },
 };
 
@@ -53,54 +55,44 @@ export default async function RegistryPage({ searchParams }: RegistryPageProps) 
         "All");
 
   return (
-    <>
+    <div className="relative min-h-full overflow-x-hidden bg-background">
       <SiteHeader active="registry" />
-      <main className="relative flex-1 overflow-hidden">
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-x-0 top-0 h-[32rem] bg-[radial-gradient(ellipse_at_top,rgba(255,253,249,0.92),transparent_70%)]"
-        />
+      <main>
+        <StyleOneHero />
+        <div className="relative z-20 mt-2 sm:mt-4">
+          <CategoryIconBar categories={categories} activeSlug={activeSlug} />
+        </div>
+        <BlessingsSection />
 
-        <div className="relative mx-auto w-full max-w-6xl px-6 py-14 sm:py-20">
-          <RegistryHero />
-
-          {error ? (
-            <p className="mt-16 text-center text-sm text-muted" role="alert">
-              {error}
-            </p>
-          ) : (
-            <>
-              <div className="mt-12 border-y border-line/80 py-4 sm:mt-14">
-                <CategoryNav categories={categories} activeSlug={activeSlug} />
-              </div>
-
-              <p className="mt-8 text-center text-xs tracking-[0.16em] uppercase text-muted">
+        {error ? (
+          <p className="px-6 py-16 text-center text-sm text-muted" role="alert">
+            {error}
+          </p>
+        ) : (
+          <div className="mx-auto w-full max-w-6xl px-3 pb-12 pt-4 sm:px-8 sm:pb-20 sm:pt-8">
+            <div className="mb-6 flex flex-col items-center text-center sm:mb-10">
+              <p className="font-ceremony text-[0.65rem] tracking-[0.28em] text-gold uppercase">
+                The collection
+              </p>
+              <h2 className="mt-2 font-ceremony text-2xl text-maroon-deep sm:text-3xl">
+                {activeCategoryName === "All" ? "All gifts" : activeCategoryName}
+              </h2>
+              <p className="mt-3 font-ceremony text-[0.65rem] tracking-[0.2em] text-muted uppercase">
                 {filteredGifts.length === 0
                   ? "No gifts in this collection"
                   : `${filteredGifts.length} ${filteredGifts.length === 1 ? "gift" : "gifts"}`}
-                {activeSlug !== "all" ? ` · ${activeCategoryName}` : null}
               </p>
-
-              <section
-                className="mt-10 sm:mt-12"
-                aria-label={activeCategoryName}
-              >
-                <GiftGrid
-                  gifts={filteredGifts}
-                  activeCategoryName={activeCategoryName}
-                />
-              </section>
-
-              <p className="mx-auto mt-20 max-w-lg text-center text-sm leading-relaxed text-muted">
-                Prefer something else? Your presence at our wedding is the
-                greatest gift. If you reserve an item, we will only use your
-                name to keep our thank-yous personal.
-              </p>
-            </>
-          )}
-        </div>
+            </div>
+            <section aria-label={activeCategoryName}>
+              <GiftGrid
+                gifts={filteredGifts}
+                activeCategoryName={activeCategoryName}
+              />
+            </section>
+          </div>
+        )}
       </main>
       <SiteFooter />
-    </>
+    </div>
   );
 }
