@@ -126,7 +126,7 @@ function ReserveDialog({
       <button
         type="button"
         aria-label="Close dialog"
-        className="absolute inset-0 bg-maroon-deep/45 backdrop-blur-[2px] transition"
+        className="absolute inset-0 bg-maroon-deep/75 backdrop-blur-[3px] transition"
         onClick={() => {
           if (!pending) onClose();
         }}
@@ -136,7 +136,7 @@ function ReserveDialog({
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className="wedding-frame relative z-10 w-full max-w-md animate-fade-up px-6 py-8 sm:px-8"
+        className="wedding-frame relative z-10 w-full max-w-md animate-fade-up bg-surface px-6 py-8 sm:px-8"
       >
         {showSuccess ? (
           <div className="text-center">
@@ -191,7 +191,7 @@ function ReserveDialog({
                   maxLength={80}
                   autoComplete="name"
                   disabled={pending}
-                  className="mt-2 w-full border border-line bg-background px-4 py-3 text-sm text-foreground outline-none transition focus:border-gold disabled:opacity-60"
+                  className="mt-2 w-full border border-gold/55 bg-background px-4 py-3 text-sm text-foreground outline-none transition focus:border-gold disabled:opacity-60"
                 />
               </label>
 
@@ -213,7 +213,7 @@ function ReserveDialog({
                   type="button"
                   disabled={pending}
                   onClick={onClose}
-                  className="flex-1 border border-line px-5 py-3 text-[0.65rem] tracking-[0.22em] text-muted uppercase transition hover:border-gold hover:text-foreground disabled:opacity-60"
+                  className="flex-1 border border-gold/55 bg-background px-5 py-3 text-[0.65rem] tracking-[0.22em] text-maroon-deep uppercase transition hover:border-gold hover:bg-gold-soft/30 disabled:opacity-60"
                 >
                   Cancel
                 </button>
