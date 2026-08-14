@@ -13,7 +13,7 @@ type CategoryIconBarProps = {
 
 const ICONS: Record<string, ReactNode> = {
   all: (
-    <svg viewBox="0 0 40 40" className="h-7 w-7 sm:h-8 sm:w-8" fill="none" aria-hidden>
+    <svg viewBox="0 0 40 40" className="h-5 w-5 sm:h-8 sm:w-8" fill="none" aria-hidden>
       <rect x="11" y="16" width="18" height="14" rx="1.5" stroke="currentColor" strokeWidth="1.4" />
       <path d="M11 21h18M20 16v14" stroke="currentColor" strokeWidth="1.25" />
       <path
@@ -24,21 +24,21 @@ const ICONS: Record<string, ReactNode> = {
     </svg>
   ),
   kitchen: (
-    <svg viewBox="0 0 40 40" className="h-7 w-7 sm:h-8 sm:w-8" fill="none" aria-hidden>
+    <svg viewBox="0 0 40 40" className="h-5 w-5 sm:h-8 sm:w-8" fill="none" aria-hidden>
       <path d="M12 19c0-4.6 3.6-8.2 8-8.2s8 3.6 8 8.2v10H12V19Z" stroke="currentColor" strokeWidth="1.4" />
       <path d="M10 29h20M20 10.8v2.4" stroke="currentColor" strokeWidth="1.25" />
       <path d="M15 19h10" stroke="currentColor" strokeWidth="1.1" opacity="0.7" />
     </svg>
   ),
   home: (
-    <svg viewBox="0 0 40 40" className="h-7 w-7 sm:h-8 sm:w-8" fill="none" aria-hidden>
+    <svg viewBox="0 0 40 40" className="h-5 w-5 sm:h-8 sm:w-8" fill="none" aria-hidden>
       <path d="M9 23h22v9H9v-9Z" stroke="currentColor" strokeWidth="1.4" />
       <path d="M13 23v-3.5c0-4 3.2-7.2 7-7.2s7 3.2 7 7.2V23" stroke="currentColor" strokeWidth="1.35" />
       <path d="M17 28h6" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
     </svg>
   ),
   decor: (
-    <svg viewBox="0 0 40 40" className="h-7 w-7 sm:h-8 sm:w-8" fill="none" aria-hidden>
+    <svg viewBox="0 0 40 40" className="h-5 w-5 sm:h-8 sm:w-8" fill="none" aria-hidden>
       <path
         d="M14.5 26c0-5.5 2.8-9.2 5.5-13 2.7 3.8 5.5 7.5 5.5 13v1.5h-11V26Z"
         stroke="currentColor"
@@ -52,14 +52,14 @@ const ICONS: Record<string, ReactNode> = {
     </svg>
   ),
   experiences: (
-    <svg viewBox="0 0 40 40" className="h-7 w-7 sm:h-8 sm:w-8" fill="none" aria-hidden>
+    <svg viewBox="0 0 40 40" className="h-5 w-5 sm:h-8 sm:w-8" fill="none" aria-hidden>
       <rect x="9" y="14" width="22" height="15" rx="2" stroke="currentColor" strokeWidth="1.4" />
       <circle cx="20" cy="21.5" r="4.5" stroke="currentColor" strokeWidth="1.3" />
       <path d="M14 14l1.8-2.8h8.4L26 14" stroke="currentColor" strokeWidth="1.25" />
     </svg>
   ),
   "gift-cards": (
-    <svg viewBox="0 0 40 40" className="h-7 w-7 sm:h-8 sm:w-8" fill="none" aria-hidden>
+    <svg viewBox="0 0 40 40" className="h-5 w-5 sm:h-8 sm:w-8" fill="none" aria-hidden>
       <rect x="8" y="13" width="24" height="15" rx="2" stroke="currentColor" strokeWidth="1.4" />
       <path d="M8 18.5h24M13 24h7" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" />
     </svg>
@@ -79,10 +79,10 @@ export function CategoryIconBar({
   ];
 
   return (
-    <div className="relative z-20 mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+    <div className="relative z-20 mx-auto w-full max-w-6xl px-3 sm:px-6 lg:px-8">
       <nav
         aria-label="Gift categories"
-        className="relative overflow-hidden rounded-2xl border border-gold/50 bg-leaf px-3 py-5 shadow-[0_16px_44px_rgba(29,51,35,0.28)] sm:px-5 sm:py-6"
+        className="relative overflow-hidden rounded-xl border border-gold/50 bg-leaf px-2 py-2 shadow-[0_16px_44px_rgba(29,51,35,0.28)] sm:rounded-2xl sm:px-5 sm:py-6"
       >
         <BarEndOrnament
           side="left"
@@ -93,16 +93,16 @@ export function CategoryIconBar({
           className="absolute right-1 top-1/2 hidden -translate-y-1/2 text-gold/80 sm:block"
         />
 
-        <FiligreeCorner className="absolute left-2.5 top-2.5 text-gold sm:left-3.5 sm:top-3" />
-        <FiligreeCorner className="absolute right-2.5 top-2.5 text-gold sm:right-3.5 sm:top-3" flipX />
-        <FiligreeCorner className="absolute bottom-2.5 left-2.5 text-gold sm:bottom-3 sm:left-3.5" flipY />
+        <FiligreeCorner className="absolute left-1.5 top-1.5 h-4 w-4 text-gold sm:left-3.5 sm:top-3 sm:h-[42px] sm:w-[42px]" />
+        <FiligreeCorner className="absolute right-1.5 top-1.5 h-4 w-4 text-gold sm:right-3.5 sm:top-3 sm:h-[42px] sm:w-[42px]" flipX />
+        <FiligreeCorner className="absolute bottom-1.5 left-1.5 h-4 w-4 text-gold sm:bottom-3 sm:left-3.5 sm:h-[42px] sm:w-[42px]" flipY />
         <FiligreeCorner
-          className="absolute bottom-2.5 right-2.5 text-gold sm:bottom-3 sm:right-3.5"
+          className="absolute bottom-1.5 right-1.5 h-4 w-4 text-gold sm:bottom-3 sm:right-3.5 sm:h-[42px] sm:w-[42px]"
           flipX
           flipY
         />
 
-        <ul className="relative mx-auto flex max-w-4xl items-stretch justify-between overflow-x-auto px-1 [-ms-overflow-style:none] [scrollbar-width:none] sm:px-4 [&::-webkit-scrollbar]:hidden">
+        <ul className="relative mx-auto flex max-w-4xl items-stretch justify-between overflow-x-auto px-0.5 [-ms-overflow-style:none] [scrollbar-width:none] sm:px-4 [&::-webkit-scrollbar]:hidden">
           {items.map((item, index) => {
             const isActive = activeSlug === item.slug;
             const href =
@@ -113,7 +113,7 @@ export function CategoryIconBar({
             return (
               <li
                 key={item.slug}
-                className="relative flex min-w-[3.35rem] flex-1 justify-center sm:min-w-[4.6rem]"
+                className="relative flex min-w-[3.1rem] flex-1 justify-center sm:min-w-[4.6rem]"
               >
                 {index > 0 ? (
                   <span
@@ -125,7 +125,7 @@ export function CategoryIconBar({
                   href={href}
                   scroll={false}
                   className={[
-                    "flex w-full flex-col items-center gap-2 px-1 py-1 text-center transition",
+                    "flex w-full flex-col items-center gap-0.5 px-0.5 py-0.5 text-center transition sm:gap-2 sm:px-1 sm:py-1",
                     isActive
                       ? "text-gold-soft"
                       : "text-gold/85 hover:text-gold-soft",
@@ -133,12 +133,12 @@ export function CategoryIconBar({
                   aria-current={isActive ? "page" : undefined}
                 >
                   {ICONS[item.slug] ?? ICONS.all}
-                  <span className="text-[0.58rem] tracking-[0.18em] uppercase sm:text-[0.66rem]">
+                  <span className="max-w-[4.2rem] text-[0.48rem] leading-tight tracking-[0.08em] uppercase sm:max-w-none sm:text-[0.66rem] sm:tracking-[0.18em]">
                     {item.name}
                   </span>
                   <span
                     className={[
-                      "h-px w-8 transition",
+                      "h-px w-5 transition sm:w-8",
                       isActive ? "bg-gold-soft" : "bg-transparent",
                     ].join(" ")}
                     aria-hidden
