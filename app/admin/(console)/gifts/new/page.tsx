@@ -20,12 +20,12 @@ export default async function NewGiftPage() {
     <div>
       <Link
         href="/admin"
-        className="text-xs tracking-[0.14em] uppercase text-muted hover:text-foreground"
+        className="text-[0.62rem] tracking-[0.18em] text-muted uppercase transition hover:text-maroon-deep"
       >
-        ← Back
+        ← Back to gifts
       </Link>
-      <h1 className="mt-4 font-display text-3xl text-foreground">Add gift</h1>
-      <p className="mt-2 text-sm text-muted">
+      <h1 className="mt-4 font-ceremony text-3xl text-maroon-deep">Add gift</h1>
+      <p className="mt-2 font-display text-base text-[#5a4336]">
         Upload an image and publish when you are ready.
       </p>
       <div className="mt-8">

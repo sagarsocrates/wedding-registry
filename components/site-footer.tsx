@@ -1,11 +1,7 @@
 import Link from "next/link";
 import { HeaderMandala } from "@/components/wedding/mockup-ornaments";
 
-type SiteFooterProps = {
-  showAdminHint?: boolean;
-};
-
-export function SiteFooter({ showAdminHint = false }: SiteFooterProps) {
+export function SiteFooter() {
   return (
     <footer className="mt-auto bg-background pb-10 pt-2">
       <div className="flex flex-col items-center px-6 text-center">
@@ -23,11 +19,9 @@ export function SiteFooter({ showAdminHint = false }: SiteFooterProps) {
           <Link href="/registry" className="transition hover:text-maroon-deep">
             Registry
           </Link>
-          {showAdminHint ? (
-            <Link href="/admin" className="transition hover:text-maroon-deep">
-              Admin
-            </Link>
-          ) : null}
+          <Link href="/admin" className="transition hover:text-maroon-deep">
+            Admin
+          </Link>
         </div>
       </div>
     </footer>

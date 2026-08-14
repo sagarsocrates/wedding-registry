@@ -31,18 +31,22 @@ export async function requireAdmin(): Promise<{
 }
 
 export async function getOptionalAdminUser(): Promise<User | null> {
-  const supabase = await createClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  try {
+    const supabase = await createClient();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
 
-  if (!user) return null;
+    if (!user) return null;
 
-  const { data: adminRow } = await supabase
-    .from("admins")
-    .select("user_id")
-    .eq("user_id", user.id)
-    .maybeSingle();
+    const { data: adminRow } = await supabase
+      .from("admins")
+      .select("user_id")
+      .eq("user_id", user.id)
+      .maybeSingle();
 
-  return adminRow ? user : null;
+    return adminRow ? user : null;
+  } catch {
+    return null;
+  }
 }

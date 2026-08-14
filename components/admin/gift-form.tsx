@@ -12,6 +12,9 @@ import { useActionState, useMemo, useState } from "react";
 
 const initialState: GiftActionState = { error: null };
 
+const fieldClass =
+  "mt-2 w-full border border-gold/45 bg-background px-4 py-3 text-sm text-foreground outline-none transition focus:border-gold";
+
 type GiftFormProps = {
   categories: Category[];
   gift?: Gift;
@@ -56,7 +59,7 @@ export function GiftForm({ categories, gift, mode }: GiftFormProps) {
           name="title"
           required
           defaultValue={gift?.title ?? ""}
-          className="mt-2 w-full border border-line bg-surface px-4 py-3 text-sm outline-none focus:border-foreground/30"
+          className={fieldClass}
         />
       </label>
 
@@ -69,7 +72,7 @@ export function GiftForm({ categories, gift, mode }: GiftFormProps) {
           required
           rows={4}
           defaultValue={gift?.description ?? ""}
-          className="mt-2 w-full border border-line bg-surface px-4 py-3 text-sm outline-none focus:border-foreground/30"
+          className={fieldClass}
         />
       </label>
 
@@ -82,7 +85,7 @@ export function GiftForm({ categories, gift, mode }: GiftFormProps) {
           required
           value={categoryId}
           onChange={(event) => setCategoryId(event.target.value)}
-          className="mt-2 w-full border border-line bg-surface px-4 py-3 text-sm outline-none focus:border-foreground/30"
+          className={fieldClass}
         >
           {categories.map((category) => (
             <option key={category.id} value={category.id}>
@@ -93,7 +96,7 @@ export function GiftForm({ categories, gift, mode }: GiftFormProps) {
       </label>
 
       {isGiftCards ? (
-        <p className="border border-line bg-surface px-4 py-3 text-sm text-muted">
+        <p className="border border-gold/40 bg-gold-soft/20 px-4 py-3 font-display text-sm text-[#5a4336]">
           Gift Cards gifts are unlimited — multiple guests can reserve this
           item. Only one Gift Cards gift should exist.
         </p>
@@ -108,7 +111,7 @@ export function GiftForm({ categories, gift, mode }: GiftFormProps) {
           name="image"
           accept="image/jpeg,image/png,image/webp,image/gif"
           required={mode === "create"}
-          className="mt-2 block w-full text-sm text-muted file:mr-4 file:border file:border-line file:bg-surface file:px-3 file:py-2 file:text-xs file:tracking-[0.12em] file:uppercase file:text-foreground"
+          className="mt-2 block w-full text-sm text-muted file:mr-4 file:border file:border-gold/45 file:bg-surface file:px-3 file:py-2 file:text-[0.62rem] file:tracking-[0.14em] file:uppercase file:text-maroon-deep"
           onChange={(event) => {
             const file = event.target.files?.[0];
             if (!file) {
@@ -121,7 +124,7 @@ export function GiftForm({ categories, gift, mode }: GiftFormProps) {
       </label>
 
       {displayPreview ? (
-        <div className="relative aspect-[4/5] max-w-xs overflow-hidden border border-line bg-line/40">
+        <div className="relative aspect-[4/5] max-w-xs overflow-hidden border border-gold/40 bg-background">
           <Image
             src={displayPreview}
             alt="Gift preview"
@@ -142,7 +145,7 @@ export function GiftForm({ categories, gift, mode }: GiftFormProps) {
           type="url"
           placeholder="https://"
           defaultValue={gift?.store_url ?? ""}
-          className="mt-2 w-full border border-line bg-surface px-4 py-3 text-sm outline-none focus:border-foreground/30"
+          className={fieldClass}
         />
       </label>
 
@@ -155,7 +158,7 @@ export function GiftForm({ categories, gift, mode }: GiftFormProps) {
           type="number"
           required
           defaultValue={gift?.sort_order ?? 0}
-          className="mt-2 w-full border border-line bg-surface px-4 py-3 text-sm outline-none focus:border-foreground/30"
+          className={fieldClass}
         />
       </label>
 
@@ -164,7 +167,7 @@ export function GiftForm({ categories, gift, mode }: GiftFormProps) {
           type="checkbox"
           name="isPublished"
           defaultChecked={gift?.is_published ?? false}
-          className="size-4 accent-foreground"
+          className="size-4 accent-maroon-deep"
         />
         Published (visible on /registry)
       </label>
@@ -178,7 +181,7 @@ export function GiftForm({ categories, gift, mode }: GiftFormProps) {
       <button
         type="submit"
         disabled={pending}
-        className="w-full border border-foreground/25 bg-foreground px-5 py-3 text-xs tracking-[0.2em] uppercase text-surface transition hover:bg-foreground/90 disabled:opacity-60"
+        className="w-full border border-gold bg-maroon-deep px-5 py-3 text-[0.65rem] tracking-[0.2em] text-surface uppercase transition hover:bg-accent disabled:opacity-60"
       >
         {pending
           ? mode === "create"

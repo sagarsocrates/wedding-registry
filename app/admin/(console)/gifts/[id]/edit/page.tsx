@@ -40,12 +40,12 @@ export default async function EditGiftPage({ params }: EditGiftPageProps) {
     <div>
       <Link
         href="/admin"
-        className="text-xs tracking-[0.14em] uppercase text-muted hover:text-foreground"
+        className="text-[0.62rem] tracking-[0.18em] text-muted uppercase transition hover:text-maroon-deep"
       >
-        ← Back
+        ← Back to gifts
       </Link>
-      <h1 className="mt-4 font-display text-3xl text-foreground">Edit gift</h1>
-      <p className="mt-2 text-sm text-muted">
+      <h1 className="mt-4 font-ceremony text-3xl text-maroon-deep">Edit gift</h1>
+      <p className="mt-2 font-display text-base text-[#5a4336]">
         Update details, replace the image, or change publish state.
       </p>
       <div className="mt-8">

@@ -24,7 +24,7 @@ export function DeleteGiftButton({ giftId, giftTitle }: DeleteGiftButtonProps) {
       <input type="hidden" name="giftId" value={giftId} />
       <button
         type="submit"
-        className="text-xs tracking-[0.14em] uppercase text-muted hover:text-foreground"
+        className="text-[0.62rem] tracking-[0.16em] text-muted uppercase transition hover:text-maroon-deep"
       >
         Delete
       </button>
@@ -57,7 +57,7 @@ export function CancelReservationButton({
       <input type="hidden" name="reservationId" value={reservationId} />
       <button
         type="submit"
-        className="text-xs tracking-[0.14em] uppercase text-accent hover:underline"
+        className="text-[0.62rem] tracking-[0.16em] text-maroon-deep uppercase transition hover:text-accent"
       >
         Cancel
       </button>

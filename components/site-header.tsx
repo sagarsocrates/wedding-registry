@@ -1,11 +1,54 @@
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { GoldSideFlourish } from "@/components/wedding/mockup-ornaments";
+import { getOptionalAdminUser } from "@/lib/admin";
 
 type SiteHeaderProps = {
   active?: "home" | "registry";
 };
 
-export function SiteHeader({ active }: SiteHeaderProps) {
+function NavLink({
+  href,
+  children,
+  active,
+}: {
+  href: string;
+  children: ReactNode;
+  active?: boolean;
+}) {
+  return (
+    <Link
+      href={href}
+      className={
+        active
+          ? "relative text-maroon-deep"
+          : "text-[#6a5344] transition hover:text-maroon-deep"
+      }
+    >
+      {children}
+      {active ? (
+        <span
+          aria-hidden
+          className="absolute -bottom-2.5 left-1/2 block h-3 w-12 -translate-x-1/2"
+        >
+          <svg viewBox="0 0 48 12" className="h-full w-full text-gold">
+            <path
+              d="M2 7c8-5 16-5 22 0s14 5 22 0"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.2"
+            />
+            <circle cx="24" cy="7" r="1.5" fill="currentColor" />
+          </svg>
+        </span>
+      ) : null}
+    </Link>
+  );
+}
+
+export async function SiteHeader({ active }: SiteHeaderProps) {
+  const admin = await getOptionalAdminUser();
+
   return (
     <header className="relative z-30 bg-transparent">
       <div className="mx-auto flex w-full max-w-[92rem] items-start justify-between gap-3 px-3 pb-1 pt-4 sm:gap-6 sm:px-6 sm:pt-6 lg:px-8">
@@ -16,43 +59,21 @@ export function SiteHeader({ active }: SiteHeaderProps) {
           <GoldSideFlourish className="mt-1.5 text-gold" />
         </Link>
 
-        <nav className="flex items-center gap-5 pt-1.5 text-[0.62rem] tracking-[0.22em] uppercase sm:gap-6 sm:text-[0.7rem]">
-          <Link
-            href="/"
-            className={
-              active === "home"
-                ? "text-maroon-deep"
-                : "text-[#6a5344] transition hover:text-maroon-deep"
-            }
-          >
+        <nav className="flex flex-wrap items-center justify-end gap-x-4 gap-y-2 pt-1.5 text-[0.62rem] tracking-[0.22em] uppercase sm:gap-6 sm:text-[0.7rem]">
+          <NavLink href="/" active={active === "home"}>
             Home
-          </Link>
-          <Link
-            href="/registry"
-            className={
-              active === "registry"
-                ? "relative text-maroon-deep"
-                : "text-[#6a5344] transition hover:text-maroon-deep"
-            }
-          >
+          </NavLink>
+          <NavLink href="/registry" active={active === "registry"}>
             Registry
-            {active === "registry" ? (
-              <span
-                aria-hidden
-                className="absolute -bottom-2.5 left-1/2 block h-3 w-12 -translate-x-1/2"
-              >
-                <svg viewBox="0 0 48 12" className="h-full w-full text-gold">
-                  <path
-                    d="M2 7c8-5 16-5 22 0s14 5 22 0"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="1.2"
-                  />
-                  <circle cx="24" cy="7" r="1.5" fill="currentColor" />
-                </svg>
-              </span>
-            ) : null}
-          </Link>
+          </NavLink>
+          {admin ? (
+            <Link
+              href="/admin"
+              className="text-gold transition hover:text-maroon-deep"
+            >
+              Admin
+            </Link>
+          ) : null}
         </nav>
       </div>
     </header>

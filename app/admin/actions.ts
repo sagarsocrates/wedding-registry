@@ -3,20 +3,24 @@
 import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 
-export type AuthActionState = {
-  error: string | null;
-};
+function safeAdminPath(nextPath: string) {
+  return nextPath.startsWith("/admin") && !nextPath.startsWith("//")
+    ? nextPath
+    : "/admin";
+}
 
-export async function loginAdmin(
-  _prev: AuthActionState,
-  formData: FormData,
-): Promise<AuthActionState> {
+function loginErrorPath(nextPath: string, error: string) {
+  const next = encodeURIComponent(safeAdminPath(nextPath));
+  return `/admin/login?next=${next}&error=${error}`;
+}
+
+export async function loginAdmin(formData: FormData) {
   const email = String(formData.get("email") ?? "").trim();
   const password = String(formData.get("password") ?? "");
   const nextPath = String(formData.get("next") ?? "/admin");
 
   if (!email || !password) {
-    return { error: "Email and password are required." };
+    redirect(loginErrorPath(nextPath, "required"));
   }
 
   const supabase = await createClient();
@@ -26,7 +30,7 @@ export async function loginAdmin(
   });
 
   if (error || !data.user) {
-    return { error: "Invalid email or password." };
+    redirect(loginErrorPath(nextPath, "invalid"));
   }
 
   const { data: adminRow } = await supabase
@@ -37,15 +41,10 @@ export async function loginAdmin(
 
   if (!adminRow) {
     await supabase.auth.signOut();
-    return { error: "This account is not authorized for admin access." };
+    redirect(loginErrorPath(nextPath, "unauthorized"));
   }
 
-  const safeNext =
-    nextPath.startsWith("/admin") && !nextPath.startsWith("//")
-      ? nextPath
-      : "/admin";
-
-  redirect(safeNext);
+  redirect(safeAdminPath(nextPath));
 }
 
 export async function logoutAdmin() {
