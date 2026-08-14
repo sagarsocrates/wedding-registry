@@ -11,20 +11,21 @@ function NavLink({
   href,
   children,
   active,
+  tone = "muted",
 }: {
   href: string;
   children: ReactNode;
   active?: boolean;
+  tone?: "muted" | "gold";
 }) {
+  const color = active
+    ? "relative text-maroon-deep"
+    : tone === "gold"
+      ? "text-gold transition hover:text-maroon-deep"
+      : "text-[#6a5344] transition hover:text-maroon-deep";
+
   return (
-    <Link
-      href={href}
-      className={
-        active
-          ? "relative text-maroon-deep"
-          : "text-[#6a5344] transition hover:text-maroon-deep"
-      }
-    >
+    <Link href={href} className={`inline-flex items-center leading-none ${color}`}>
       {children}
       {active ? (
         <span
@@ -51,15 +52,15 @@ export async function SiteHeader({ active }: SiteHeaderProps) {
 
   return (
     <header className="relative z-30 bg-transparent">
-      <div className="mx-auto flex w-full max-w-[92rem] items-start justify-between gap-3 px-3 pb-1 pt-4 sm:gap-6 sm:px-6 sm:pt-6 lg:px-8">
-        <Link href="/" className="flex flex-col items-start pt-0.5">
-          <span className="font-ceremony text-[0.95rem] tracking-[0.22em] text-maroon-deep uppercase sm:text-lg md:text-[1.25rem]">
+      <div className="mx-auto flex w-full max-w-[92rem] items-center justify-between gap-2 px-3 pb-1 pt-4 sm:items-start sm:gap-6 sm:px-6 sm:pt-6 lg:px-8">
+        <Link href="/" className="flex min-w-0 flex-col items-start pt-0.5">
+          <span className="font-ceremony text-[0.8rem] tracking-[0.16em] text-maroon-deep uppercase sm:text-lg sm:tracking-[0.22em] md:text-[1.25rem]">
             Sagar &amp; Krithika
           </span>
           <GoldSideFlourish className="mt-1.5 text-gold" />
         </Link>
 
-        <nav className="flex flex-wrap items-center justify-end gap-x-4 gap-y-2 pt-1.5 text-[0.62rem] tracking-[0.22em] uppercase sm:gap-6 sm:text-[0.7rem]">
+        <nav className="flex flex-nowrap items-center justify-end gap-x-3 pt-0.5 text-[0.58rem] tracking-[0.16em] whitespace-nowrap uppercase sm:gap-6 sm:pt-1.5 sm:text-[0.7rem] sm:tracking-[0.22em]">
           <NavLink href="/" active={active === "home"}>
             Home
           </NavLink>
@@ -67,12 +68,9 @@ export async function SiteHeader({ active }: SiteHeaderProps) {
             Registry
           </NavLink>
           {admin ? (
-            <Link
-              href="/admin"
-              className="text-gold transition hover:text-maroon-deep"
-            >
+            <NavLink href="/admin" tone="gold">
               Admin
-            </Link>
+            </NavLink>
           ) : null}
         </nav>
       </div>

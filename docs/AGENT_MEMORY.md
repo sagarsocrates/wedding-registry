@@ -13,3 +13,15 @@ Read these before changing product behavior or architecture:
 1. Done through Phase 6 (polish + deployment guide)
 2. Optional: full wedding landing on `/`, CAPTCHA, richer OG images (Phase 7)
 3. When ready: follow [deployment.md](./deployment.md) to ship on Vercel
+
+## Phone-first UI
+
+Most guests view the registry on a phone. Always design that viewport first.
+
+**Phone first screen (`/registry`)**
+
+Same invitation as laptop, scaled to the phone: Tamil Nadu (left) | title (center) | Kerala (right), same sketch files and `object-contain` as desktop. Intro copy sits **under** the sketches on phones. Category bar follows the content (do not stretch the first screen to push it to the viewport bottom). Gifts below.
+
+Do not use a separate stacked sketch layout on phones. Do not crop or restyle the sketches differently than laptop.
+
+**Desktop:** Tamil Nadu | copy | Kerala, then the same category bar and a 3-column gift grid. Phones use a 2-column gift grid with smaller type and tighter cards.

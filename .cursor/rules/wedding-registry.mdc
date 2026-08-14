@@ -23,7 +23,12 @@ Next.js App Router · TypeScript · Tailwind · Supabase Postgres/Auth/Storage �
 - Guests reserve with **name only** via `reserve_gift` RPC. No guest cancel.
 - Admin: Supabase Auth + `public.admins` allowlist. JWT + RLS for CRUD/uploads.
 - Guest reserve UX success: `Thank you, <name> ❤️` / `This gift has been reserved.`
-- Public UI must match the approved Style One mockup: cream parchment, maroon titles, gold ornaments, forest-green rounded category bar with gold corner filigree + icon nav, centered invitation copy flanked by Tamil Nadu (left) and Kerala (right) sepia sketches with region labels, gift grid after the category bar, four blessings columns above the footer. English only. No couple photo / garland side columns in the approved composition.
+- Public UI is **phone-first**. Most guests open `/registry` on a phone. Design and test the small screen first; desktop is a wider version of the same invitation, not the other way around.
+- Phone invitation (first screen): same composition as laptop — Tamil Nadu sketch (left), title + copy (center), Kerala sketch (right), using the **same images and object-contain rendering** as desktop. Then a slim forest-green category bar. Gifts start after a scroll. Do not overlay sketches behind the title, do not stack sketches under the title, and do not crop/zoom them differently on phones.
+- Desktop invitation: cream parchment, maroon titles, gold ornaments, Tamil Nadu (left) | centered copy | Kerala (right), then the green category bar, gift grid, four blessings columns above the footer.
+- Green category bar: compact on phones (small icons, tight padding, ~one-eighth of the first screen). Do not let it dominate the viewport.
+- Gift grid: 2 columns on phones, 3 on desktop; cards and type scale down on phones.
+- English only. No couple photo / garland side columns in the approved composition.
 
 ## Implementation order (current)
 
@@ -39,3 +44,4 @@ Next.js App Router · TypeScript · Tailwind · Supabase Postgres/Auth/Storage �
 - Keep dependencies minimal (`@supabase/ssr`, `@supabase/supabase-js`, `zod`).
 - Never add `SUPABASE_SERVICE_ROLE_KEY` to the app.
 - Before changing schema/product rules, re-read `docs/implementation-plan.md`.
+- Layout and visual changes: **optimize for phone screens first**, then scale up. Do not design desktop-first and compress it onto mobile.

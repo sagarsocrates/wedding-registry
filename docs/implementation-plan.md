@@ -194,11 +194,14 @@ reserve_gift(p_gift_id uuid, p_guest_name text)
 
 **`/registry`**
 
+Phone-first. Most guests are on a phone; layout for that screen first.
+
 1. **Sagar & Krithika**
-2. **Our Gift Registry**
-3. Warm intro
-4. Category nav: All | Kitchen | Home | Decor | Experiences | Gift Cards
-5. Editorial gift grid (1 col mobile / 3 col desktop)
+2. **Our Gift Registry** (eyebrow + title)
+3. Tamil Nadu + Kerala sketches — same 3-column invitation as desktop (sketches flank the copy); same images and object-contain on every screen
+4. Warm intro
+5. Slim category nav: All | Kitchen | Home | Decor | Experiences | Gift Cards
+6. Editorial gift grid (2 col phone / 3 col desktop) — below the first screen on phones
 
 **Gift tile:** large image, title, short description, Reserve / Reserved. No prices.
 

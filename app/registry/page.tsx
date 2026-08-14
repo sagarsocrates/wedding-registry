@@ -56,10 +56,10 @@ export default async function RegistryPage({ searchParams }: RegistryPageProps) 
 
   return (
     <div className="relative min-h-full overflow-x-hidden bg-background">
-      <div className="flex min-h-dvh flex-col">
+      <div>
         <SiteHeader active="registry" />
         <StyleOneHero />
-        <div className="relative z-20 mt-auto pb-3 sm:mt-4 sm:pb-0">
+        <div className="relative z-20 mt-3 sm:mt-4">
           <CategoryIconBar categories={categories} activeSlug={activeSlug} />
         </div>
       </div>
