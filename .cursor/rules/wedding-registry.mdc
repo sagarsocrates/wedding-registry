@@ -23,7 +23,7 @@ Next.js App Router · TypeScript · Tailwind · Supabase Postgres/Auth/Storage �
 - Guests reserve with **name only** via `reserve_gift` RPC. No guest cancel.
 - Admin: Supabase Auth + `public.admins` allowlist. JWT + RLS for CRUD/uploads.
 - Guest reserve UX success: `Thank you, <name> ❤️` / `This gift has been reserved.`
-- Public UI must match the approved Style One mockup: cream parchment, maroon titles, gold ornaments, forest-green rounded category bar with gold corner filigree + icon nav, centered invitation copy flanked by Tamil Nadu (left) and Kerala (right) sepia sketches with region labels, four blessings columns under the green bar. English only. No couple photo / garland side columns in the approved composition.
+- Public UI must match the approved Style One mockup: cream parchment, maroon titles, gold ornaments, forest-green rounded category bar with gold corner filigree + icon nav, centered invitation copy flanked by Tamil Nadu (left) and Kerala (right) sepia sketches with region labels, gift grid after the category bar, four blessings columns above the footer. English only. No couple photo / garland side columns in the approved composition.
 
 ## Implementation order (current)
 

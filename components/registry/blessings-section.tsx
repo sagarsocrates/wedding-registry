@@ -73,7 +73,7 @@ const BLESSINGS = [
 
 export function BlessingsSection() {
   return (
-    <section className="relative mx-auto mt-8 max-w-6xl px-4 sm:mt-10 sm:px-6 lg:px-8">
+    <section className="relative mx-auto mt-2 max-w-6xl px-4 sm:mt-4 sm:px-6 lg:px-8">
       <div className="relative border border-gold/45 px-3 py-10 sm:px-5 sm:py-12">
         <FiligreeCorner className="absolute left-1 top-1 text-gold sm:left-2 sm:top-2" />
         <FiligreeCorner className="absolute right-1 top-1 text-gold sm:right-2 sm:top-2" flipX />

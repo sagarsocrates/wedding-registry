@@ -62,14 +62,13 @@ export default async function RegistryPage({ searchParams }: RegistryPageProps) 
         <div className="relative z-20 mt-2 sm:mt-4">
           <CategoryIconBar categories={categories} activeSlug={activeSlug} />
         </div>
-        <BlessingsSection />
 
         {error ? (
           <p className="px-6 py-16 text-center text-sm text-muted" role="alert">
             {error}
           </p>
         ) : (
-          <div className="mx-auto w-full max-w-6xl px-3 pb-12 pt-4 sm:px-8 sm:pb-20 sm:pt-8">
+          <div className="mx-auto w-full max-w-6xl px-3 pb-8 pt-4 sm:px-8 sm:pb-12 sm:pt-8">
             <div className="mb-6 flex flex-col items-center text-center sm:mb-10">
               <p className="font-ceremony text-[0.65rem] tracking-[0.28em] text-gold uppercase">
                 The collection
@@ -91,6 +90,7 @@ export default async function RegistryPage({ searchParams }: RegistryPageProps) 
             </section>
           </div>
         )}
+        <BlessingsSection />
       </main>
       <SiteFooter />
     </div>
