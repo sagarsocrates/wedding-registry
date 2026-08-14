@@ -1,4 +1,3 @@
-import { BlessingsSection } from "@/components/registry/blessings-section";
 import { CategoryIconBar } from "@/components/registry/category-icon-bar";
 import { GiftGrid } from "@/components/registry/gift-grid";
 import { StyleOneHero } from "@/components/registry/style-one-hero";
@@ -56,12 +55,10 @@ export default async function RegistryPage({ searchParams }: RegistryPageProps) 
 
   return (
     <div className="relative min-h-full overflow-x-hidden bg-background">
-      <div className="flex min-h-dvh flex-col sm:min-h-0">
-        <SiteHeader active="registry" />
-        <StyleOneHero />
-        <div className="relative z-20 mt-2 pb-3 sm:mt-4 sm:pb-0">
-          <CategoryIconBar categories={categories} activeSlug={activeSlug} />
-        </div>
+      <SiteHeader active="registry" />
+      <StyleOneHero showSketches={false} />
+      <div className="relative z-20 pb-3 sm:pb-0">
+        <CategoryIconBar categories={categories} activeSlug={activeSlug} />
       </div>
 
       <main>
@@ -70,20 +67,7 @@ export default async function RegistryPage({ searchParams }: RegistryPageProps) 
             {error}
           </p>
         ) : (
-          <div className="mx-auto w-full max-w-6xl px-3 pb-8 pt-4 sm:px-8 sm:pb-12 sm:pt-8">
-            <div className="mb-6 flex flex-col items-center text-center sm:mb-10">
-              <p className="font-ceremony text-[0.65rem] tracking-[0.28em] text-gold uppercase">
-                The collection
-              </p>
-              <h2 className="mt-2 font-ceremony text-2xl text-maroon-deep sm:text-3xl">
-                {activeCategoryName === "All" ? "All gifts" : activeCategoryName}
-              </h2>
-              <p className="mt-3 font-ceremony text-[0.65rem] tracking-[0.2em] text-muted uppercase">
-                {filteredGifts.length === 0
-                  ? "No gifts in this collection"
-                  : `${filteredGifts.length} ${filteredGifts.length === 1 ? "gift" : "gifts"}`}
-              </p>
-            </div>
+          <div className="mx-auto w-full max-w-6xl px-4 pb-12 pt-8 sm:px-8 sm:pb-16 sm:pt-10">
             <section aria-label={activeCategoryName}>
               <GiftGrid
                 gifts={filteredGifts}
@@ -92,7 +76,6 @@ export default async function RegistryPage({ searchParams }: RegistryPageProps) 
             </section>
           </div>
         )}
-        <BlessingsSection />
       </main>
       <SiteFooter />
     </div>

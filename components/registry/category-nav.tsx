@@ -20,7 +20,7 @@ export function CategoryNav({ categories, activeSlug }: CategoryNavProps) {
       aria-label="Gift categories"
       className="relative -mx-6 px-6 sm:mx-0 sm:px-0"
     >
-      <ul className="flex items-center gap-1 overflow-x-auto pb-1 sm:flex-wrap sm:justify-center sm:gap-1 sm:overflow-visible sm:pb-0 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+      <ul className="flex items-center justify-start gap-0.5 overflow-x-auto pb-0 sm:flex-wrap sm:justify-center sm:gap-1 sm:overflow-visible [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
         {items.map((item) => {
           const isActive = activeSlug === item.slug;
           const href =
@@ -34,7 +34,7 @@ export function CategoryNav({ categories, activeSlug }: CategoryNavProps) {
                 href={href}
                 scroll={false}
                 className={[
-                  "group relative inline-flex items-center px-3 py-2.5 text-[0.7rem] tracking-[0.16em] uppercase transition-colors duration-300 sm:px-4 sm:text-xs",
+                  "group relative inline-flex items-center px-3 py-3 text-[0.68rem] tracking-[0.14em] uppercase transition-colors duration-300 sm:px-4 sm:py-3.5 sm:text-[0.72rem] sm:tracking-[0.16em]",
                   isActive
                     ? "text-accent"
                     : "text-muted hover:text-foreground",

@@ -18,8 +18,6 @@ Read these before changing product behavior or architecture:
 
 Most guests view the registry on a phone. Always design that viewport first.
 
-**Phone first screen (`/registry`)**
+**Home (`/`):** Tamil Nadu and Kerala sketches with “We are getting married.” Phone: titles, sketches side by side, copy. Desktop: Tamil Nadu | copy | Kerala.
 
-On phones the first screen is stacked: titles, then Tamil Nadu and Kerala sketches immediately underneath (side by side, object-contain). Do not stretch a sketch row to fill the viewport — that leaves a blank band above the images. Blessing copy follows the sketches; leftover height sits above the green category bar.
-
-**Desktop:** Tamil Nadu | copy | Kerala, then the same category bar and a 3-column gift grid. Phones use a 2-column gift grid with smaller type and tighter cards.
+**Registry (`/registry`):** no sketches. Title + short intro, forest-green category bar, then the original gift tiles. No second “collection” heading and no blessings block (those stay on home). Phones use a 2-column gift grid; desktop uses 3 columns.
