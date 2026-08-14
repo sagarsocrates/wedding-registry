@@ -20,8 +20,6 @@ Most guests view the registry on a phone. Always design that viewport first.
 
 **Phone first screen (`/registry`)**
 
-Same invitation as laptop, scaled to the phone: Tamil Nadu (left) | title (center) | Kerala (right), same sketch files and `object-contain` as desktop. Intro copy sits **under** the sketches on phones. Category bar follows the content (do not stretch the first screen to push it to the viewport bottom). Gifts below.
-
-Do not use a separate stacked sketch layout on phones. Do not crop or restyle the sketches differently than laptop.
+On phones the first screen is stacked: “Celebrating our forever” and “Our Gift Registry” on top, Tamil Nadu and Kerala sketches side by side (object-contain, faded into parchment), blessing copy under the sketches, then the slim green category bar. Laptop keeps the three-column layout.
 
 **Desktop:** Tamil Nadu | copy | Kerala, then the same category bar and a 3-column gift grid. Phones use a 2-column gift grid with smaller type and tighter cards.

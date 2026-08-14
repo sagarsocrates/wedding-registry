@@ -24,7 +24,7 @@ Next.js App Router · TypeScript · Tailwind · Supabase Postgres/Auth/Storage �
 - Admin: Supabase Auth + `public.admins` allowlist. JWT + RLS for CRUD/uploads.
 - Guest reserve UX success: `Thank you, <name> ❤️` / `This gift has been reserved.`
 - Public UI is **phone-first**. Most guests open `/registry` on a phone. Design and test the small screen first; desktop is a wider version of the same invitation, not the other way around.
-- Phone invitation (first screen): same composition as laptop — Tamil Nadu sketch (left), title + copy (center), Kerala sketch (right), using the **same images and object-contain rendering** as desktop. Then a slim forest-green category bar. Gifts start after a scroll. Do not overlay sketches behind the title, do not stack sketches under the title, and do not crop/zoom them differently on phones.
+- Phone invitation (first screen): stacked — titles on top, Tamil Nadu and Kerala sketches **side by side** (`object-contain`, faded into parchment), blessing copy under the sketches, then a slim forest-green category bar. Gifts start after a scroll. Desktop stays Tamil Nadu | copy | Kerala.
 - Desktop invitation: cream parchment, maroon titles, gold ornaments, Tamil Nadu (left) | centered copy | Kerala (right), then the green category bar, gift grid, four blessings columns above the footer.
 - Green category bar: compact on phones (small icons, tight padding, ~one-eighth of the first screen). Do not let it dominate the viewport.
 - Gift grid: 2 columns on phones, 3 on desktop; cards and type scale down on phones.
