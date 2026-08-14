@@ -22,7 +22,7 @@ export function StyleOneHero({
 }: StyleOneHeroProps) {
   return (
     <section className="relative flex min-h-0 flex-1 flex-col overflow-hidden pb-2 pt-1 sm:flex-none sm:pb-4 sm:pt-4">
-      {/* Phone: title, then sketches side by side, then blessing copy */}
+      {/* Phone: title, sketches tucked under it, then blessing copy. Leftover height sits below the copy. */}
       <div className="relative flex min-h-0 flex-1 flex-col sm:hidden">
         <div className="z-10 flex shrink-0 flex-col items-center px-6 pt-1 text-center">
           <HeaderMandala className="h-5 w-5 text-gold" />
@@ -35,9 +35,9 @@ export function StyleOneHero({
           <TitleFlourish className="mt-1.5 h-3.5 w-[5.5rem] text-gold" />
         </div>
 
-        <div className="relative grid min-h-0 flex-1 grid-cols-2 items-stretch gap-x-4 px-1">
+        <div className="relative mt-1 grid shrink-0 grid-cols-2 items-start gap-x-4 px-2">
           <figure
-            className="relative min-h-0"
+            className="relative aspect-[3/4] w-full max-h-[min(40dvh,19rem)]"
             style={{
               WebkitMaskImage:
                 "radial-gradient(ellipse 95% 100% at 42% 58%, #000 52%, transparent 80%)",
@@ -52,11 +52,11 @@ export function StyleOneHero({
               priority
               unoptimized
               sizes="50vw"
-              className="object-contain object-bottom"
+              className="object-contain object-top"
             />
           </figure>
           <figure
-            className="relative min-h-0"
+            className="relative aspect-[3/4] w-full max-h-[min(40dvh,19rem)]"
             style={{
               WebkitMaskImage:
                 "radial-gradient(ellipse 95% 100% at 58% 58%, #000 52%, transparent 80%)",
@@ -71,14 +71,15 @@ export function StyleOneHero({
               priority
               unoptimized
               sizes="50vw"
-              className="object-contain object-bottom"
+              className="object-contain object-top"
             />
           </figure>
         </div>
 
-        <p className="mx-auto max-w-md shrink-0 px-5 pb-3 pt-2 text-center font-display text-[0.9rem] leading-[1.55] text-[#5c4033]">
+        <p className="mx-auto max-w-md shrink-0 px-5 pb-2 pt-2 text-center font-display text-[0.9rem] leading-[1.55] text-[#5c4033]">
           {description}
         </p>
+        <div className="min-h-0 flex-1" aria-hidden />
       </div>
 
       {/* Tablet / laptop — locked composition */}

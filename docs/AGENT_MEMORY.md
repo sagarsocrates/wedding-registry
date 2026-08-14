@@ -20,6 +20,6 @@ Most guests view the registry on a phone. Always design that viewport first.
 
 **Phone first screen (`/registry`)**
 
-On phones the first screen is stacked: “Celebrating our forever” and “Our Gift Registry” on top, Tamil Nadu and Kerala sketches side by side (object-contain, faded into parchment), blessing copy under the sketches, then the slim green category bar. Laptop keeps the three-column layout.
+On phones the first screen is stacked: titles, then Tamil Nadu and Kerala sketches immediately underneath (side by side, object-contain). Do not stretch a sketch row to fill the viewport — that leaves a blank band above the images. Blessing copy follows the sketches; leftover height sits above the green category bar.
 
 **Desktop:** Tamil Nadu | copy | Kerala, then the same category bar and a 3-column gift grid. Phones use a 2-column gift grid with smaller type and tighter cards.
